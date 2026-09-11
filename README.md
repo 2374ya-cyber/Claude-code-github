@@ -31,10 +31,10 @@ assets/
 בכל שיעור, כל דוגמה מכילה תיבת placeholder בסגנון:
 
 ```html
-<div class="media-slot" data-media-for="shen-lot">
+<div class="media-slot" data-media-for="shen-1">
   <span class="icon">🖼️</span>
-  <span>מקום לתמונה / איור — פרידת אברהם ולוט</span>
-  <code>assets/images/arba-avot-nezikin/shen-lot.jpg</code>
+  <span>מקום לתמונה</span>
+  <code>assets/images/arba-avot-nezikin/shen-1.jpg</code>
 </div>
 ```
 
@@ -43,7 +43,7 @@ assets/
 
 ```html
 <figure class="media-slot" style="border-style: solid; padding: 0;">
-  <img src="../assets/images/arba-avot-nezikin/shen-lot.jpg" alt="תיאור התמונה" style="border-radius:10px;" />
+  <img src="../assets/images/arba-avot-nezikin/shen-1.jpg" alt="תיאור התמונה" style="border-radius:10px;" />
 </figure>
 ```
 
@@ -51,7 +51,7 @@ assets/
 
 ```html
 <video controls style="width:100%; border-radius:10px;">
-  <source src="../assets/videos/arba-avot-nezikin/shen-bundy.mp4" type="video/mp4" />
+  <source src="../assets/videos/arba-avot-nezikin/shen-2.mp4" type="video/mp4" />
 </video>
 ```
 
