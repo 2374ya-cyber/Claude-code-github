@@ -167,6 +167,11 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
 .breadcrumbs a:hover { text-decoration: underline; }
 
 /* ===== Lesson cards (index) ===== */
+.group-title {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
 .lesson-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -187,14 +192,6 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
   transition: transform .15s ease, border-color .15s ease;
 }
 .lesson-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-.lesson-card .tag {
-  align-self: flex-start;
-  font-size: .75rem;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  padding: 3px 10px;
-  border-radius: 999px;
-}
 .lesson-card h3 { font-size: 1.15rem; }
 .lesson-card p { margin: 0; color: var(--ink-soft); font-size: .92rem; }
 .lesson-card .meta { font-size: .8rem; color: var(--ink-soft); }
