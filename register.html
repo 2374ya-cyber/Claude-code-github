@@ -44,16 +44,12 @@
         <input type="tel" name="motherPhone" placeholder="05XXXXXXXX" required />
       </label>
       <label>
-        שם משתמש (אותיות באנגלית ומספרים)
-        <input type="text" name="username" pattern="[A-Za-z0-9_]{3,20}" required />
+        קוד אישי (4 ספרות)
+        <input type="password" name="pin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required />
       </label>
       <label>
-        סיסמה
-        <input type="password" name="password" minlength="6" required />
-      </label>
-      <label>
-        אימות סיסמה
-        <input type="password" name="confirmPassword" minlength="6" required />
+        אימות קוד אישי
+        <input type="password" name="confirmPin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required />
       </label>
 
       <p class="auth-error" id="form-error" hidden></p>
@@ -74,6 +70,7 @@
     const form = document.getElementById("register-form");
     const errorEl = document.getElementById("form-error");
     const phonePattern = /^0\d{8,9}$/;
+    const pinPattern = /^\d{4}$/;
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -92,8 +89,13 @@
         errorEl.hidden = false;
         return;
       }
-      if (data.password !== data.confirmPassword) {
-        errorEl.textContent = "הסיסמאות אינן תואמות.";
+      if (!pinPattern.test(data.pin)) {
+        errorEl.textContent = "הקוד האישי חייב להיות בדיוק 4 ספרות.";
+        errorEl.hidden = false;
+        return;
+      }
+      if (data.pin !== data.confirmPin) {
+        errorEl.textContent = "הקודים האישיים אינם תואמים.";
         errorEl.hidden = false;
         return;
       }

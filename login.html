@@ -25,12 +25,16 @@
 
     <form id="login-form" class="auth-form">
       <label>
-        שם משתמש
-        <input type="text" name="username" required />
+        שם פרטי
+        <input type="text" name="firstName" required />
       </label>
       <label>
-        סיסמה
-        <input type="password" name="password" required />
+        שם משפחה
+        <input type="text" name="lastName" required />
+      </label>
+      <label>
+        קוד אישי (4 ספרות)
+        <input type="password" name="pin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required />
       </label>
 
       <p class="auth-error" id="form-error" hidden></p>

@@ -10,15 +10,20 @@ import {
 import {
   getFirestore,
   doc,
-  getDoc,
   setDoc,
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 import { firebaseConfig, isFirebaseConfigured } from "./firebase-config.js";
 
-// Firebase Auth requires an email address. Users only choose a username, so
-// we turn it into a fake email under a fixed local domain and keep a
-// username -> email lookup in Firestore ("usernames" collection) for login.
-const USERNAME_DOMAIN = "arba-avot-users.local";
+// Firebase Auth needs an email + a 6+ character password. Users only enter a
+// first/last name and a 4-digit PIN, so both are turned into values Firebase
+// will accept:
+// - the email is a deterministic hash of the normalized name, so login can
+//   recompute the same value from the name alone (no separate lookup table).
+// - the PIN is padded with a fixed suffix to clear the 6-character minimum.
+//   This is NOT extra security (the suffix is public, right here); it only
+//   satisfies Firebase's API requirement so a real 4-digit PIN can be used.
+const EMAIL_DOMAIN = "arba-avot-users.local";
+const PIN_PAD_SUFFIX = "-avot-pin";
 
 let app = null;
 let auth = null;
@@ -30,12 +35,26 @@ if (isFirebaseConfigured) {
   db = getFirestore(app);
 }
 
-function usernameToEmail(username) {
-  return `${username}@${USERNAME_DOMAIN}`;
+function normalizeName(name) {
+  return String(name || "")
+    .normalize("NFC")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
 }
 
-function normalizeUsername(username) {
-  return String(username || "").trim().toLowerCase();
+async function nameToEmail(firstName, lastName) {
+  const key = `${normalizeName(firstName)}|${normalizeName(lastName)}`;
+  const bytes = new TextEncoder().encode(key);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", bytes);
+  const hashHex = Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return `u${hashHex.slice(0, 32)}@${EMAIL_DOMAIN}`;
+}
+
+function pinToPassword(pin) {
+  return `${pin}${PIN_PAD_SUFFIX}`;
 }
 
 export function isReady() {
@@ -50,27 +69,17 @@ export function getAuthInstance() {
   return auth;
 }
 
-export async function registerUser({ firstName, lastName, fatherPhone, motherPhone, username, password }) {
+export async function registerUser({ firstName, lastName, fatherPhone, motherPhone, pin }) {
   if (!isFirebaseConfigured) {
     throw new Error("ההרשמה עדיין לא מוגדרת באתר. נסו שוב מאוחר יותר.");
   }
-  const cleanUsername = normalizeUsername(username);
-  const usernameRef = doc(db, "usernames", cleanUsername);
-  const existing = await getDoc(usernameRef);
-  if (existing.exists()) {
-    throw new Error("שם המשתמש הזה כבר תפוס, נסו שם אחר.");
-  }
-
-  const email = usernameToEmail(cleanUsername);
+  const email = await nameToEmail(firstName, lastName);
   let credential;
   try {
-    credential = await createUserWithEmailAndPassword(auth, email, password);
+    credential = await createUserWithEmailAndPassword(auth, email, pinToPassword(pin));
   } catch (err) {
     if (err.code === "auth/email-already-in-use") {
-      throw new Error("שם המשתמש הזה כבר תפוס, נסו שם אחר.");
-    }
-    if (err.code === "auth/weak-password") {
-      throw new Error("הסיסמה קצרה מדי (לפחות 6 תווים).");
+      throw new Error("כבר קיים משתמש רשום עם השם הזה. אם זה אתה, נסו להתחבר במקום להירשם.");
     }
     throw new Error("ההרשמה נכשלה, נסו שוב.");
   }
@@ -82,29 +91,21 @@ export async function registerUser({ firstName, lastName, fatherPhone, motherPho
     lastName,
     fatherPhone,
     motherPhone,
-    username: cleanUsername,
     createdAt: new Date().toISOString(),
   });
-  await setDoc(usernameRef, { uid: credential.user.uid, email });
 
   return credential.user;
 }
 
-export async function loginUser({ username, password }) {
+export async function loginUser({ firstName, lastName, pin }) {
   if (!isFirebaseConfigured) {
     throw new Error("ההתחברות עדיין לא מוגדרת באתר. נסו שוב מאוחר יותר.");
   }
-  const cleanUsername = normalizeUsername(username);
-  const usernameRef = doc(db, "usernames", cleanUsername);
-  const snap = await getDoc(usernameRef);
-  if (!snap.exists()) {
-    throw new Error("שם משתמש או סיסמה שגויים.");
-  }
-  const { email } = snap.data();
+  const email = await nameToEmail(firstName, lastName);
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, pinToPassword(pin));
   } catch (err) {
-    throw new Error("שם משתמש או סיסמה שגויים.");
+    throw new Error("שם או קוד אישי שגויים.");
   }
 }
 
