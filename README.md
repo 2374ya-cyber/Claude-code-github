@@ -21,7 +21,7 @@ register.html                       # הרשמה
 login.html                          # התחברות
 firestore.rules                     # כללי אבטחה ל-Firestore (מדביקים בקונסולת Firebase)
 lessons/
-  arba-avot-nezikin.html            # עמוד "ב, א" - כל נושאי הדף בזה אחר זה
+  arba-avot-nezikin.html            # השיעור הראשון: ארבעה אבות נזיקין
 assets/
   css/style.css                     # כל העיצוב
   js/main.js                        # פתיחת הסעיף הראשון בשיעור
@@ -70,16 +70,11 @@ assets/
   src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
 ```
 
-## הוספת תוכן
+## הוספת שיעור חדש
 
-**נושא נוסף על אותו דף גמרא (אותה "ב, א"):** מוסיפים עוד `<section class="topic-section">` בתוך
-`lessons/arba-avot-nezikin.html`, עם `<h2 class="topic-title">` לכותרת הנושא ו-`<div class="intro-box">`
-לתוכן — באותו סגנון כמו הנושאים הקיימים בקובץ.
-
-**עמוד חדש לדף גמרא אחר:**
-1. יוצרים קובץ חדש תחת `lessons/` (למשל `lessons/daf-bet-bet.html`),
+1. יוצרים קובץ חדש תחת `lessons/` (למשל `lessons/mazik-adam-be-adam.html`),
    ומעתיקים ממנו את השלד של `lessons/arba-avot-nezikin.html` (header, footer, קישור ל־CSS/JS).
-2. יוצרים תיקיות מדיה תואמות: `assets/images/<שם-הדף>/` ו־`assets/videos/<שם-הדף>/` במידת הצורך.
+2. יוצרים תיקיות מדיה תואמות: `assets/images/<שם-השיעור>/` ו־`assets/videos/<שם-השיעור>/`.
 3. מוסיפים כרטיס חדש ל־`index.html` בתוך `.lesson-grid`.
 
 ## עיצוב
