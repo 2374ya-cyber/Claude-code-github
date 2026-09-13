@@ -101,7 +101,6 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
   border-radius: 999px;
 }
 .auth-link-primary:hover { color: #fff; opacity: .9; }
-.auth-name { font-size: .9rem; color: var(--ink-soft); }
 
 .auth-form {
   display: flex;
