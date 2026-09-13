@@ -67,7 +67,7 @@ assets/
 1. יוצרים קובץ חדש תחת `lessons/` (למשל `lessons/mazik-adam-be-adam.html`),
    ומעתיקים ממנו את השלד של `lessons/arba-avot-nezikin.html` (header, footer, קישור ל־CSS/JS).
 2. יוצרים תיקיות מדיה תואמות: `assets/images/<שם-השיעור>/` ו־`assets/videos/<שם-השיעור>/`.
-3. מוסיפים כרטיס חדש ל־`index.html` בתוך `.lesson-grid`, לפני ה־`card-placeholder`.
+3. מוסיפים כרטיס חדש ל־`index.html` בתוך `.lesson-grid`.
 
 ## עיצוב
 

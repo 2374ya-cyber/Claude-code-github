@@ -126,16 +126,6 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
 .lesson-card p { margin: 0; color: var(--ink-soft); font-size: .92rem; }
 .lesson-card .meta { font-size: .8rem; color: var(--ink-soft); }
 
-.card-placeholder {
-  grid-column: 1 / -1;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-  color: var(--ink-soft);
-  text-align: center;
-  font-size: .9rem;
-}
-
 /* ===== Lesson page ===== */
 .lesson-title {
   font-size: 2rem;
