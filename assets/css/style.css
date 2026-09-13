@@ -197,14 +197,20 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
 .lesson-card .meta { font-size: .8rem; color: var(--ink-soft); }
 
 /* ===== Lesson page ===== */
+.lesson-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
 .lesson-title {
   font-size: 2rem;
-  margin-bottom: 6px;
+  margin: 0;
 }
 .lesson-source {
   color: var(--ink-soft);
   font-size: .95rem;
-  margin-bottom: 20px;
 }
 .intro-box {
   background: var(--bg-elevated);
