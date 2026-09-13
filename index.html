@@ -16,6 +16,14 @@
         <span class="mark">📖</span>
         <span>ארבעה אבות</span>
       </a>
+      <div class="auth-area" id="auth-area-out">
+        <a class="auth-link" href="login.html">התחברות</a>
+        <a class="auth-link auth-link-primary" href="register.html">הרשמה</a>
+      </div>
+      <div class="auth-area" id="auth-area-in" hidden>
+        <span class="auth-name" id="auth-name"></span>
+        <button type="button" class="auth-link" id="logout-btn">התנתקות</button>
+      </div>
     </div>
   </header>
 
@@ -37,5 +45,6 @@
   <footer class="site-footer"></footer>
 
   <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/header-auth.js"></script>
 </body>
 </html>

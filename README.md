@@ -17,11 +17,19 @@ python3 -m http.server 8000
 
 ```
 index.html                          # עמוד הבית עם רשימת השיעורים
+register.html                       # הרשמה
+login.html                          # התחברות
+firestore.rules                     # כללי אבטחה ל-Firestore (מדביקים בקונסולת Firebase)
 lessons/
   arba-avot-nezikin.html            # השיעור הראשון: ארבעה אבות נזיקין
 assets/
-  css/style.css                     # כל העיצוב (RTL, בהיר/כהה)
-  js/main.js                        # מתג ערכת נושא + פתיחת הסעיף הראשון
+  css/style.css                     # כל העיצוב
+  js/main.js                        # פתיחת הסעיף הראשון בשיעור
+  js/firebase-config.js             # פרטי חיבור ל-Firebase (למלא לפי ההנחיות למטה)
+  js/auth.js                        # הרשמה/התחברות/התנתקות מול Firebase
+  js/header-auth.js                 # עדכון אזור ההתחברות ב-header בכל עמוד
+  js/progress.js                    # קריאה/כתיבה של התקדמות בשיעור למשתמש מחובר
+  js/lesson-progress.js             # חיווט כפתורי "סימון כהושלם" בעמוד שיעור
   images/<שם-שיעור>/                # תמונות של השיעור
   videos/<שם-שיעור>/                # סרטונים של השיעור
 ```
@@ -74,4 +82,32 @@ assets/
 - כותרות: Frank Ruhl Libre · גוף הטקסט: Heebo (גופני Google Fonts, עברית מלאה).
 - לכל אב נזיקין (שן/רגל/בור/אש) יש צבע משלו, המוגדר ב־`assets/css/style.css` תחת המשתנים
   `--shen`, `--regel`, `--bor`, `--esh`.
-- מצב כהה/בהיר נשמר בדפדפן (`localStorage`) דרך הכפתור בפינת ה־header.
+## הרשמה, התחברות ומעקב התקדמות
+
+גלישה באתר לא דורשת חשבון. משתמש שנרשם (שם פרטי, שם משפחה, טלפון אבא, טלפון אמא,
+שם משתמש וסיסמה) יכול לסמן סעיפים כ"הושלם" בכל שיעור, וההתקדמות נשמרת עבורו.
+
+זה בנוי על **Firebase** (Authentication + Firestore) — שירות חינמי של Google שמתאים
+לאתרים סטטיים כמו זה, בלי לדרוש שרת משלכם.
+
+### הגדרה חד-פעמית
+
+1. נכנסים ל-[console.firebase.google.com](https://console.firebase.google.com/) ויוצרים
+   פרויקט חדש (חינמי, לא דורש כרטיס אשראי).
+2. **Build → Authentication → Get started** → מפעילים ספק **Email/Password**.
+   (המערכת משתמשת בו מאחורי הקלעים כדי לתמוך בהתחברות עם שם משתמש בלבד —
+   ראו הסבר ב־`assets/js/auth.js`.)
+3. **Build → Firestore Database → Create database** → מצב **Production**.
+4. בלשונית **Rules** של Firestore, מדביקים את התוכן של `firestore.rules` מהריפו הזה
+   ולוחצים **Publish**.
+5. **Project settings → General → Your apps** → מוסיפים אפליקציית **Web** (`</>`),
+   ומעתיקים את אובייקט ה-config שמופיע.
+6. מדביקים את הערכים בקובץ `assets/js/firebase-config.js` במקום ה-`PASTE_...`.
+
+לאחר מכן הרשמה, התחברות ומעקב התקדמות יעבדו אוטומטית — אין צורך בשינוי קוד נוסף.
+
+### איפה רואים את רשימת הנרשמים
+
+בקונסולת Firebase, תחת **Firestore Database → Data**, באוסף `users` — כל מסמך הוא
+משתמש, עם שם פרטי, שם משפחה וטלפוני ההורים. הגישה הזו פתוחה רק לבעל פרויקט
+ה-Firebase (כלומר אתה), ולא לגולשים באתר.

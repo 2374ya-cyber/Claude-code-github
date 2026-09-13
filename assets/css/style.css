@@ -75,6 +75,78 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
   color: var(--accent-strong);
   font-size: 1.1rem;
 }
+
+/* ===== Auth (login / register) ===== */
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-inline-start: auto;
+}
+.auth-link {
+  font-size: .9rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+.auth-link:hover { color: var(--accent-strong); }
+.auth-link-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 999px;
+}
+.auth-link-primary:hover { color: #fff; opacity: .9; }
+.auth-name { font-size: .9rem; color: var(--ink-soft); }
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+.auth-form input {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  color: var(--ink);
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.auth-submit {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.auth-submit:hover { opacity: .9; }
+.auth-submit:disabled { opacity: .6; cursor: default; }
+.auth-error {
+  color: #b23b2e;
+  font-size: .88rem;
+  margin: 0;
+}
+
 /* ===== Hero ===== */
 .hero {
   padding: 44px 0 30px;
@@ -257,6 +329,34 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
   direction: ltr;
   display: inline-block;
   font-size: .72rem;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.progress-toggle {
+  font-family: inherit;
+  font-size: .85rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--bg-elevated);
+  color: var(--accent-strong);
+  cursor: pointer;
+}
+.progress-toggle:disabled { cursor: default; opacity: .6; }
+.progress-toggle.done {
+  background: var(--accent);
+  color: #fff;
+}
+.progress-hint {
+  font-size: .8rem;
+  color: var(--ink-soft);
 }
 
 .headline-quotes {

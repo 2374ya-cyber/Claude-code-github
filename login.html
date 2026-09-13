@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>התחברות | ארבעה אבות</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <span class="mark">📖</span>
+        <span>ארבעה אבות</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding-top: 34px; max-width: 480px;">
+    <div class="breadcrumbs"><a href="index.html">בית</a> ← התחברות</div>
+    <h1 class="lesson-title">התחברות</h1>
+
+    <form id="login-form" class="auth-form">
+      <label>
+        שם משתמש
+        <input type="text" name="username" required />
+      </label>
+      <label>
+        סיסמה
+        <input type="password" name="password" required />
+      </label>
+
+      <p class="auth-error" id="form-error" hidden></p>
+
+      <button type="submit" class="auth-submit">התחברות</button>
+    </form>
+
+    <p style="margin-top: 16px; font-size: .9rem; color: var(--ink-soft);">
+      עדיין לא נרשמת? <a href="register.html">הרשמה</a>
+    </p>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script type="module">
+    import { loginUser, isReady } from "./assets/js/auth.js";
+
+    const form = document.getElementById("login-form");
+    const errorEl = document.getElementById("form-error");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      errorEl.hidden = true;
+
+      if (!isReady()) {
+        errorEl.textContent = "ההתחברות עדיין לא מוגדרת באתר. נסו שוב מאוחר יותר.";
+        errorEl.hidden = false;
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      const submitBtn = form.querySelector(".auth-submit");
+      submitBtn.disabled = true;
+      try {
+        await loginUser(data);
+        window.location.href = "index.html";
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.hidden = false;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
