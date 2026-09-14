@@ -1,10 +1,23 @@
 import { setSectionComplete } from "./progress.js";
 import { QUIZ_LESSON_ID, getCachedAnswers, getCurrentQuizUser, markQuestionCorrect, onAnswersReady } from "./score.js";
 
+const main = document.querySelector("main[data-lesson-id]");
+const lessonId = main ? main.dataset.lessonId : null;
+
 function lockQuiz(quizEl, revealCorrect) {
   quizEl.querySelectorAll(".quiz-choice").forEach((b) => {
     b.disabled = true;
     if (revealCorrect && b.dataset.correct === "true") b.classList.add("correct");
+  });
+}
+
+function markSectionDoneIfAny(quizEl) {
+  const sectionId = quizEl.dataset.marksSection;
+  if (!sectionId || !lessonId) return;
+  const badge = document.getElementById(`done-${sectionId}`);
+  if (badge) badge.hidden = false;
+  setSectionComplete(lessonId, sectionId, true).catch(() => {
+    /* best-effort: badge already updated locally */
   });
 }
 
@@ -26,13 +39,16 @@ document.querySelectorAll(".quiz").forEach((quizEl) => {
       feedback.className = "quiz-feedback " + (isCorrect ? "correct" : "incorrect");
 
       const user = getCurrentQuizUser();
-      if (isCorrect && user && !getCachedAnswers()[qid]) {
-        markQuestionCorrect(qid);
-        try {
-          await setSectionComplete(QUIZ_LESSON_ID, qid, true);
-        } catch (err) {
-          /* best-effort: score already updated locally */
+      if (isCorrect && user) {
+        if (!getCachedAnswers()[qid]) {
+          markQuestionCorrect(qid);
+          try {
+            await setSectionComplete(QUIZ_LESSON_ID, qid, true);
+          } catch (err) {
+            /* best-effort: score already updated locally */
+          }
         }
+        markSectionDoneIfAny(quizEl);
       }
     });
   });

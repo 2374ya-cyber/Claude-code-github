@@ -365,32 +365,14 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
   font-size: .72rem;
 }
 
-.progress-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--line);
-}
-.progress-toggle {
-  font-family: inherit;
-  font-size: .85rem;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--accent);
-  background: var(--bg-elevated);
-  color: var(--accent-strong);
-  cursor: pointer;
-}
-.progress-toggle:disabled { cursor: default; opacity: .6; }
-.progress-toggle.done {
-  background: var(--accent);
-  color: #fff;
-}
-.progress-hint {
+.nezek-done {
   font-size: .8rem;
-  color: var(--ink-soft);
+  font-weight: 600;
+  color: #1b5e20;
+  background: #eaf6ea;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .headline-quotes {
