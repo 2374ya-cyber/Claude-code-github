@@ -20,6 +20,7 @@
         <a class="auth-link auth-link-primary" href="../login.html">התחברות</a>
       </div>
       <div class="auth-area" id="auth-area-in" hidden>
+        <span class="score-badge" id="score-badge" hidden></span>
         <button type="button" class="auth-link auth-link-primary" id="logout-btn">התנתקות</button>
       </div>
     </div>
@@ -34,39 +35,71 @@
     </div>
 
     <div class="intro-box">
-      <h3>תולדותיהן כיוצא בהן</h3>
-      <p>
-        "אבות מלאכות ארבעים חסר אחת": במשכן היו 39 מלאכות חשובות שנצרכו לצורך עבודת המשכן, כל
-        המלאכות האלו שהיו במשכן אסורות בשבת. לדוגמה: זורע גרעין חיטה באדמה כדי שיצמח.
-      </p>
-      <p>
-        יש מלאכות נוספות שלא היו חשובות במשכן, אבל הם דומות למלאכות החשובות שהיו במשכן, לדוגמה:
-        אדם שמשקה עץ בשבת זה דומה למלאכת זורע, כי הוא עוזר לצמיחה של העץ.
-      </p>
-      <p>
-        אב: הוא המלאכה שהייתה חשובה במשכן. תולדה: המלאכה שדומה למלאכה שהייתה חשובה במשכן וגם
-        היא אסורה. מסופר שרבי יוחנן וריש לקיש, לאחר לימוד משותף של שלוש וחצי שנים, מצאו 39
-        תולדות לכל אחד מהאבות.
-      </p>
+        <h3>תולדותיהן כיוצא בהן</h3>
+        <p class="p-strong">"אבות מלאכות ארבעים חסר אחת": במשכן היו 39 מלאכות חשובות שנצרכו לצורך עבודת המשכן, כל המלאכות האלו שהיו במשכן אסורות בשבת. לדוגמה: זורע גרעין חיטה באדמה כדי שיצמח.</p>
+        <p class="p-strong">יש מלאכות נוספות שהיו במשכן, אבל לא היו חשובות. המלאכות האלו דומות למלאכות החשובות שהיו במשכן, לדוגמה: אדם שמשקה עץ בשבת זה דומה למלאכת זורע, כי הוא עוזר לצמיחה של העץ.</p>
+        <p class="p-strong">אב: מלאכה שהייתה חשובה במשכן. תולדה: מלאכה שדומה למלאכה חשובה במשכן. תולדות גם אסורות בשבת.</p>
+        <p class="p-light">מסופר שרבי יוחנן וריש לקיש, לאחר לימוד משותף של שלוש וחצי שנים, מצאו 39 תולדות לכל אחד מהאבות.</p>
+        <div class="quiz" data-question-id="q24">
+          <p class="quiz-question">שאלת חזרה: כמה "אבות מלאכות" היו במשכן?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">ארבעים</button>
+            <button type="button" class="quiz-choice" data-correct="true">שלושים ותשע</button>
+            <button type="button" class="quiz-choice" data-correct="false">שלושים ושבע</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q25">
+          <p class="quiz-question">שאלת חזרה: מהי "תולדה" של מלאכה בשבת?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">מלאכה שהייתה חשובה במשכן</button>
+            <button type="button" class="quiz-choice" data-correct="true">מלאכה שדומה למלאכה חשובה במשכן</button>
+            <button type="button" class="quiz-choice" data-correct="false">מלאכה שאינה אסורה בשבת</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>הדין</h3>
+        <h3>מיתה בידי שמים</h3>
+        <p class="p-light">הַמְּקוֹשֵׁשׁ - כשבני ישראל היו במדבר, היה אדם שאסף עצים בשבת, משה לא ידע איך לנהוג במקרה הזה, שאל את הקב"ה וקיבל תשובה שדינו בסקילה.</p>
+        <p class="p-strong">אדם שעושה בשבת מלאכה אסורה, בשוגג חייב חטאת, במזיד, עם עדים והתראה חייב סקילה, בלי עדים או התראה, חייב מיתה בידי שמים.</p>
+        <p class="p-strong">אין הבדל אם עבר על אב מלאכה, או על תולדה, תמיד חייב אותו דבר כמו אדם שעשה מלאכה אסורה בשבת.</p>
+        <div class="quiz" data-question-id="q26">
+          <p class="quiz-question">שאלת חזרה: אדם שעשה מלאכה אחת אסורה בשבת במזיד, בלי עדים והתראה, מה דינו?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">חטאת</button>
+            <button type="button" class="quiz-choice" data-correct="false">סקילה</button>
+            <button type="button" class="quiz-choice" data-correct="true">מיתה בידי שמים</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q27">
+          <p class="quiz-question">שאלת חזרה: האם יש הבדל בעונש בין מי שעבר על "אב מלאכה" לבין מי שעבר על "תולדה"?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">כן, העונש על האב חמור יותר</button>
+            <button type="button" class="quiz-choice" data-correct="true">לא, העונש זהה בשני המקרים</button>
+            <button type="button" class="quiz-choice" data-correct="false">כן, העונש על התולדה חמור יותר</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>תולדותיהן כיוצא בהן</h3>
+        <p class="p-strong">אנחנו רואים שגם בדיני שבת יש אבות ותולדות, כמו אצלנו בדיני נזיקין. לתולדות המלאכות שאסורות בשבת יש דין דומה כמו לאבות שלהם ולא דין שונה.</p>
+        <div class="quiz" data-question-id="q28">
+          <p class="quiz-question">שאלת חזרה: מה הדמיון בין דיני שבת לדיני נזיקין?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">בשניהם אין כל הבדל בין אב לתולדה</button>
+            <button type="button" class="quiz-choice" data-correct="true">בשניהם קיימת חלוקה לאבות ותולדות</button>
+            <button type="button" class="quiz-choice" data-correct="false">בשניהם התולדה חמורה יותר מהאב</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
 
-      <h3>הדין</h3>
-      <p>
-        הַמְּקוֹשֵׁשׁ - כשבני ישראל היו במדבר, היה אדם שאסף עצים בשבת, משה לא ידע איך לנהוג
-        במקרה הזה, שאל את הקב"ה וקיבל תשובה שדינו בסקילה. אדם שעושה בשבת מלאכה אסורה, בשוגג
-        חייב חטאת, במזיד, עם עדים והתראה חייב סקילה, בלי עדים או התראה, חייב מיתה בידי שמים.
-      </p>
-      <p>אין הבדל אם עבר על אב מלאכה, או על תולדה, תמיד חייב אותו דבר כמו אדם שעשה מלאכה אסורה בשבת.</p>
-
-      <h3>תולדותיהן כיוצא בהן</h3>
-      <p>
-        אנחנו רואים שגם בדיני שבת יש אבות ותולדות, כמו אצלנו בדיני נזיקין. לתולדות המלאכות
-        שאסורות בשבת יש דין דומה כמו לאבות שלהם ולא דין שונה.
-      </p>
     </div>
   </main>
 
   <footer class="site-footer"></footer>
 
   <script type="module" src="../assets/js/header-auth.js"></script>
+  <script type="module" src="../assets/js/score.js"></script>
+  <script type="module" src="../assets/js/quiz.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@
         <a class="auth-link auth-link-primary" href="../login.html">התחברות</a>
       </div>
       <div class="auth-area" id="auth-area-in" hidden>
+        <span class="score-badge" id="score-badge" hidden></span>
         <button type="button" class="auth-link auth-link-primary" id="logout-btn">התנתקות</button>
       </div>
     </div>
@@ -34,13 +35,34 @@
     </div>
 
     <div class="intro-box">
-      <h3>שור ומבעה</h3>
-      <p>לשיטת שמואל: שור: רגל, מבעה: שן.</p>
+        <h3>שור ומבעה</h3>
+        <p class="p-strong">לשיטת שמואל: שור: רגל, מבעה: שן.</p>
+        <div class="quiz" data-question-id="q17">
+          <p class="quiz-question">שאלת חזרה: לפי שיטת שמואל, מהו "מבעה"?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">רגל</button>
+            <button type="button" class="quiz-choice" data-correct="true">שן</button>
+            <button type="button" class="quiz-choice" data-correct="false">בור</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q18">
+          <p class="quiz-question">שאלת חזרה: לפי שיטת שמואל, מהו "שור"?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="true">רגל</button>
+            <button type="button" class="quiz-choice" data-correct="false">שן</button>
+            <button type="button" class="quiz-choice" data-correct="false">בור</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+
     </div>
   </main>
 
   <footer class="site-footer"></footer>
 
   <script type="module" src="../assets/js/header-auth.js"></script>
+  <script type="module" src="../assets/js/score.js"></script>
+  <script type="module" src="../assets/js/quiz.js"></script>
 </body>
 </html>

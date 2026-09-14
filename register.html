@@ -20,6 +20,7 @@
         <a class="auth-link auth-link-primary" href="login.html">התחברות</a>
       </div>
       <div class="auth-area" id="auth-area-in" hidden>
+        <span class="score-badge" id="score-badge" hidden></span>
         <button type="button" class="auth-link auth-link-primary" id="logout-btn">התנתקות</button>
       </div>
     </div>
@@ -71,6 +72,7 @@
   <footer class="site-footer"></footer>
 
   <script type="module" src="assets/js/header-auth.js"></script>
+  <script type="module" src="assets/js/score.js"></script>
   <script type="module">
     import { registerUser, isReady } from "./assets/js/auth.js";
 

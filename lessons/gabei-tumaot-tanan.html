@@ -20,6 +20,7 @@
         <a class="auth-link auth-link-primary" href="../login.html">התחברות</a>
       </div>
       <div class="auth-area" id="auth-area-in" hidden>
+        <span class="score-badge" id="score-badge" hidden></span>
         <button type="button" class="auth-link auth-link-primary" id="logout-btn">התנתקות</button>
       </div>
     </div>
@@ -34,7 +35,7 @@
     </div>
 
     <div class="intro-box">
-      <h3>שמונה שרצים</h3>
+        <h3>שמונה שרצים</h3>
       <ul class="glossary-list">
         <li>"חלד": סמור.</li>
         <li>"עכבר":</li>
@@ -45,60 +46,78 @@
         <li>"חמט": חלזון.</li>
         <li>"תנשמת": חפרפרת.</li>
       </ul>
-
-      <h3>טומאה וטהרה</h3>
-      <p>
-        אדם שנטמא, מוטלות עליו מגבלות הלכתיות מסוימות כל עוד הוא טמא: אסור לו להיכנס לבית
-        המקדש, וכן לאכול מאכלים שנחשבים לקדושים.
-      </p>
-
-      <h3>מקבלים טומאה</h3>
-      <p>אדם: יהודי.</p>
-      <p>כלים: בגדים, או כלים העשויים מעץ, עור, חרס ומתכת.</p>
-      <p>
-        כלים העשויים מאבן, אינם מקבלים טומאה כלל. זוהי הסיבה לשכיחותם של כלי אבן בחפירות הרובע
-        ההרודיאני בעיר העתיקה בירושלים: המגורים בקרבת בית המקדש חייבו את התושבים להיזהר
-        מטומאה, והדרך הנוחה ביותר היא להשתמש בכלים שאינם מקבלים טומאה כלל.
-      </p>
-      <p>לאחר הרגל היו הכהנים מטהרים את כל כלי המקדש, מחשש שנטמאו במהלך החג.</p>
-      <p>אוכל: כל סוגי המזון, ובתנאי שהורטבו אי פעם לאחר שנקטפו. ורחץ כרפס</p>
-      <p>משקה: שבעה סוגים של משקים שמקבלים טומאה. ראשי תיבות: י"ד שח"ט ד"ם: יין, דבש דבורים, שמן, חלב, טל, דם ומים.</p>
-
-      <h3>מטמאים</h3>
-      <p>כל דבר טמא, גם מטמא אחרים. כמה מהם:</p>
-      <p>אדם מת: יהודי או גוי שמתו.</p>
-      <p>
-        שרץ: אחד מ8 שרצים שמתו: "וְזֶה לָכֶם הַטָּמֵא בַּשֶּׁרֶץ הַשֹּׁרֵץ עַל־הָאָרֶץ הַחֹלֶד
-        וְהָעַכְבָּר וְהַצָּב לְמִינֵהוּ וְהָאֲנָקָה וְהַכֹּחַ וְהַלְּטָאָה וְהַחֹמֶט
-        וְהַתִּנְשָׁמֶת".
-      </p>
-      <p>
-        המקבלים טומאה: אדם בגד כלי אוכל משקה שנטמאו, בהתחלה היו טהורים, אבל אחרי שנטמאו
-        מתחילים גם לטמא אחרים. כמו אדם שהיה בריא, אבל אחרי שנהיה חולה, הוא מדביק גם אחרים.
-      </p>
-
-      <h3>דרגות הטומאה</h3>
-      <p>
-        לאנשים צעירים יש גוף חזק שמסוגל לנצח מחלות מסוימות, אבל זקנים, תינוקים וחולים הם בעלי
-        גוף חלש יותר ומחלות כאלו עלולות לנצח אותם בקלות.
-      </p>
-      <p>
-        כמעט כולם מכירים אנשים שנפטרו במגיפת הקורונה. הוירוס הראשון שהגיע אלינו מסין, היה הכי
-        חזק וקשה, הוא פגע אפילו בצעירים חזקים ולא רק באנשים חלשים, אבל במעבר מאדם לאדם, הוא
-        נחלש וכך מזיק פחות, עד שהיום הוא נהיה כמו שפעת רגילה. לא נעים, אבל גם לא נורא. יש
-        אנשים שחולים היום בקורונה והם אפילו לא יודעים ב״ה.
-      </p>
-      <p>יש הוכחות חזקות לכך שהמקור למחלה הוא וירוס שיוצר במעבדה בסין ומשם התפשט לכל העולם.</p>
-      <p>אבא הוא המקור של הילדים, הם מגיעים ממנו. הבן שלו הוא ראשון לאבא, הנכד שני לאבא הנין שלישי לאבא</p>
-      <p>הוירוס עצמו הוא המקור של המחלה אב המחלה, האדם הראשון שנדבק הוא ראשון למחלה</p>
-      <p>מחלה חזקה פוגעת גם בחזקים, מחלה חלשה פוגעת רק בחלשים. ככל שהמחלה עוברת מאדם לאדם היא נחלשת.</p>
-      <p>
-        כל דבר שהיה טהור וקיבל טומאה, כמו אדם, כלים ואוכל, נגע בדבר טמא, הוא נהיה בדרגה אחת
-        פחות מהדבר הטמא. לדוגמה: אם כלים נגעו בראשון לטומאה, הם טמאים והופכים להיות שניים
-        לטומאה וכך הלאה.
-      </p>
-      <p>ככל שהטומאה בדרגה נמוכה יותר, היא מטמאת פחות דברים.</p>
-
+        <h3>טומאה וטהרה</h3>
+        <p class="p-strong">אדם שנטמא, מוטלות עליו מגבלות הלכתיות מסוימות כל עוד הוא טמא: אסור לו להיכנס לבית המקדש, וכן לאכול מאכלים שנחשבים לקדושים.</p>
+        <div class="quiz" data-question-id="q35">
+          <p class="quiz-question">שאלת חזרה: מה אסור לאדם טמא:</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">לאכול כל מאכל שהוא</button>
+            <button type="button" class="quiz-choice" data-correct="true">להיכנס לבית המקדש ולאכול מאכלים קדושים</button>
+            <button type="button" class="quiz-choice" data-correct="false">לצאת מביתו</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>מקבלים טומאה</h3>
+        <p class="p-strong">אדם: יהודי.</p>
+        <p class="p-strong">כלים: בגדים, או כלים העשויים מעץ, עור, חרס ומתכת.</p>
+        <p class="p-light">כלים העשויים מאבן, אינם מקבלים טומאה כלל. זוהי הסיבה לשכיחותם של כלי אבן בחפירות הרובע ההרודיאני בעיר העתיקה בירושלים: המגורים בקרבת בית המקדש חייבו את התושבים להיזהר מטומאה, והדרך הנוחה ביותר היא להשתמש בכלים שאינם מקבלים טומאה כלל.</p>
+        <p class="p-light">לאחר הרגל היו הכהנים מטהרים את כל כלי המקדש, מחשש שנטמאו במהלך החג.</p>
+        <p class="p-strong">אוכל: כל סוגי המזון.</p>
+        <p class="p-light">בתנאי שהורטבו אי פעם לאחר שנקטפו. ורחץ כרפס</p>
+        <p class="p-strong">משקה: משקים שמקבלים טומאה.</p>
+        <p class="p-light">שבעה סוגים של משקים, ראשי תיבות: י"ד שח"ט ד"ם: יין, דבש דבורים, שמן, חלב, טל, דם ומים.</p>
+        <div class="quiz" data-question-id="q36">
+          <p class="quiz-question">שאלת חזרה: מאילו חומרים עשויים "כלים" שמקבלים טומאה?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">אבן וזכוכית</button>
+            <button type="button" class="quiz-choice" data-correct="true">בגדים, עץ, עור, חרס ומתכת</button>
+            <button type="button" class="quiz-choice" data-correct="false">זהב וכסף בלבד</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q37">
+          <p class="quiz-question">שאלת חזרה: איזה "אדם" מקבל טומאה?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="true">יהודי</button>
+            <button type="button" class="quiz-choice" data-correct="false">גבר בלבד</button>
+            <button type="button" class="quiz-choice" data-correct="false">רק כהן</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>מטמאים</h3>
+        <p class="p-strong">כל דבר טמא, גם מטמא אחרים. כמה מהם:</p>
+        <p class="p-strong">אדם מת: יהודי או גוי שמתו.</p>
+        <p class="p-strong">שרץ: אחד מ8 שרצים שמתו: "וְזֶה לָכֶם הַטָּמֵא בַּשֶּׁרֶץ הַשֹּׁרֵץ עַל־הָאָרֶץ הַחֹלֶד וְהָעַכְבָּר וְהַצָּב לְמִינֵהוּ וְהָאֲנָקָה וְהַכֹּחַ וְהַלְּטָאָה וְהַחֹמֶט וְהַתִּנְשָׁמֶת".</p>
+        <p class="p-strong">המקבלים טומאה: אדם בגד כלי אוכל משקה שנטמאו, בהתחלה היו טהורים, אבל אחרי שנטמאו מתחילים גם לטמא אחרים.</p>
+        <p class="p-light">כמו אדם שהיה בריא, אבל אחרי שנהיה חולה, הוא מדביק גם אחרים.</p>
+        <div class="quiz" data-question-id="q38">
+          <p class="quiz-question">שאלת חזרה: איזה אדם מטמא?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">רק יהודי שמת</button>
+            <button type="button" class="quiz-choice" data-correct="true">יהודי או גוי שמתו</button>
+            <button type="button" class="quiz-choice" data-correct="false">רק גוי שמת</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q39">
+          <p class="quiz-question">שאלת חזרה: מה קורה לדבר טהור לאחר שהוא נטמא?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">נשאר טהור לגמרי</button>
+            <button type="button" class="quiz-choice" data-correct="true">מתחיל גם הוא לטמא אחרים</button>
+            <button type="button" class="quiz-choice" data-correct="false">הוא נעלם ואינו קיים יותר</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>דרגות הטומאה</h3>
+        <p class="p-light">לאנשים צעירים יש גוף חזק שמסוגל לנצח מחלות מסוימות, אבל זקנים, תינוקים וחולים הם בעלי גוף חלש יותר ומחלות כאלו עלולות לנצח אותם בקלות.</p>
+        <p class="p-light">כמעט כולם מכירים אנשים שנפטרו במגיפת הקורונה. הוירוס הראשון שהגיע אלינו מסין, היה הכי חזק וקשה, הוא פגע אפילו בצעירים חזקים ולא רק באנשים חלשים, אבל במעבר מאדם לאדם, הוא נחלש וכך מזיק פחות, עד שהיום הוא נהיה כמו שפעת רגילה. לא נעים, אבל גם לא נורא. יש אנשים שחולים היום בקורונה והם אפילו לא יודעים ב״ה.</p>
+        <p class="p-light">יש הוכחות חזקות לכך שהמקור למחלה הוא וירוס שיוצר במעבדה בסין ומשם התפשט לכל העולם.</p>
+        <p class="p-light">אבא הוא המקור של הילדים, הם מגיעים ממנו. הבן שלו הוא ראשון לאבא, הנכד שני לאבא הנין שלישי לאבא</p>
+        <p class="p-light">הוירוס עצמו הוא המקור של המחלה אב המחלה, האדם הראשון שנדבק הוא ראשון למחלה</p>
+        <p class="p-strong">מחלה חזקה פוגעת גם בחזקים, מחלה חלשה פוגעת רק בחלשים. ככל שהמחלה עוברת מאדם לאדם היא נחלשת.</p>
+        <p class="p-strong">כל דבר שהיה טהור וקיבל טומאה, כמו אדם, כלים ואוכל, נגע בדבר טמא, הוא נהיה בדרגה אחת פחות מהדבר הטמא. לדוגמה: אם כלים נגעו בראשון לטומאה, הם טמאים והופכים להיות שניים לטומאה וכך הלאה.</p>
+        <p class="p-strong">ככל שהטומאה בדרגה נמוכה יותר, היא מטמאת פחות דברים.</p>
+        <p class="p-strong">דברים שנטמאים נקראים תולדה של הטומאה ראשון שני וכו</p>
       <div class="table-scroll">
         <table class="data-table">
           <thead>
@@ -122,17 +141,43 @@
           </tbody>
         </table>
       </div>
+        <div class="quiz" data-question-id="q40">
+          <p class="quiz-question">שאלת חזרה: דבר טהור שנגע ב"ראשון לטומאה" הופך להיות:</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">אב הטומאה</button>
+            <button type="button" class="quiz-choice" data-correct="true">שני לטומאה</button>
+            <button type="button" class="quiz-choice" data-correct="false">טהור לגמרי</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <div class="quiz" data-question-id="q41">
+          <p class="quiz-question">שאלת חזרה: ככל שדרגת הטומאה נמוכה יותר:</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="true">היא מטמאת פחות דברים</button>
+            <button type="button" class="quiz-choice" data-correct="false">היא מטמאת יותר דברים</button>
+            <button type="button" class="quiz-choice" data-correct="false">אין לדרגה כל השפעה על הטומאה</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
+        <h3>אבות ותולדות</h3>
+        <p class="p-strong">בדיני טומאה וטהרה יש אבות ותולדות. הדבר המטמא הוא אב והדבר שנטמא הוא תולדה של הטומאה. לתולדה יש דין שונה מהאב שלו. כי אב מטמא גם אדם וכלים ותולדה לא מטמא אדם וכלים.</p>
+        <div class="quiz" data-question-id="q42">
+          <p class="quiz-question">שאלת חזרה: מה ההבדל בין "אב" הטומאה ל"תולדה" שלו?</p>
+          <div class="quiz-choices">
+            <button type="button" class="quiz-choice" data-correct="false">אין כל הבדל ביניהם</button>
+            <button type="button" class="quiz-choice" data-correct="true">אב מטמא גם אדם וכלים ותולדה לא</button>
+            <button type="button" class="quiz-choice" data-correct="false">תולדה מטמאת אדם וכלים, ואב לא</button>
+          </div>
+          <p class="quiz-feedback" hidden></p>
+        </div>
 
-      <h3>אבות ותולדות</h3>
-      <p>
-        בדיני טומאה וטהרה יש אבות ותולדות. הדבר המטמא הוא אב והדבר שנטמא הוא תולדה של הטומאה.
-        לתולדה יש דין שונה מהאב שלו. כי אב מטמא גם אדם וכלים ותולדה לא מטמא אדם וכלים.
-      </p>
     </div>
   </main>
 
   <footer class="site-footer"></footer>
 
   <script type="module" src="../assets/js/header-auth.js"></script>
+  <script type="module" src="../assets/js/score.js"></script>
+  <script type="module" src="../assets/js/quiz.js"></script>
 </body>
 </html>
