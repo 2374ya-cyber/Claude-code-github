@@ -139,3 +139,43 @@ assets/
 טקסט "רגיל" (לא נטוי במקור) נחשב חשוב יותר ומקבל את המחלקה `p-strong`
 (מודגש). טקסט נטוי במקור הוא חומר תומך/סיפורי ומקבל את המחלקה `p-light`
 (נטוי, בצבע רך יותר). זה נקבע פסקה-פסקה בזמן העריכה — אין קביעה אוטומטית.
+
+## SMS להורים בהגעה לניקוד (`functions/`)
+
+בכל פעם שהניקוד של תלמיד חוצה כפולה של 10 (10, 20, 30...), נשלחת הודעת SMS
+אוטומטית להורים (טלפון אבא ואמא, אם קיימים) דרך [SMS4Free](https://www.sms4free.co.il/).
+זה רץ כ-**Cloud Function** (`functions/index.js`) שמאזינה לשינויים ב-
+`users/{uid}/progress/quiz` — לא קוד שרץ בדפדפן.
+
+### הגדרה חד-פעמית (דורשת טרמינל עם Firebase CLI)
+
+1. **שדרוג ל-Blaze plan** — ב-Firebase Console → Usage and billing → שדרוג
+   מ-Spark ל-**Blaze** (דורש כרטיס אשראי בהגדרה; Cloud Functions לא רצות
+   בתוכנית החינמית. בהיקף הזה זה יישאר כמעט תמיד בגבולות החינמי של Blaze).
+2. **אימות שולח ראשוני ב-SMS4Free** — לפני שימוש ב-API, צריך לשלוח הודעת
+   SMS אחת **ידנית** דרך דף השליחה באתר SMS4Free (עם אותו מספר טלפון שאיתו
+   נרשמתם). בלי זה כל קריאת API תיכשל עם קוד שגיאה `-6`.
+3. **התקנת Firebase CLI** (אם עוד אין): `npm install -g firebase-tools`
+   ואז `firebase login`.
+4. **הגדרת הסודות** — מריצים בטרמינל (כל פקודה תבקש להדביק ערך, בלי שהוא
+   נשמר בהיסטוריית השורה או מוצג כאן):
+   ```bash
+   firebase functions:secrets:set SMS4FREE_KEY
+   firebase functions:secrets:set SMS4FREE_USER
+   firebase functions:secrets:set SMS4FREE_PASS
+   firebase functions:secrets:set SMS4FREE_SENDER
+   ```
+   הערכים לוקחים מהאזור האישי באתר SMS4Free (לשונית API): `KEY` = מפתח ה-API
+   שלכם, `USER` = מספר הטלפון שאיתו נרשמתם לאתר, `PASS` = הסיסמה שלכם באתר,
+   `SENDER` = מזהה השולח (מספר הטלפון, אם לא נרכשה חבילת SMS בשם מותאם).
+5. **פריסה:**
+   ```bash
+   cd functions && npm install && cd ..
+   firebase deploy --only functions
+   ```
+
+לאחר הפריסה, כל תשובה נכונה שמעלה תלמיד לכפולה חדשה של 10 תפעיל שליחת SMS
+אוטומטית — אין צורך בשום שינוי נוסף באתר עצמו.
+
+**לשינוי סף ההודעה** (למשל כל 5 נקודות במקום 10): עורכים את `MILESTONE_STEP`
+בראש `functions/index.js` ופורסים מחדש (`firebase deploy --only functions`).
