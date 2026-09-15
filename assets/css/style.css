@@ -395,12 +395,6 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0 0 .4em;
 .p-strong { font-weight: 600; }
 .p-light { color: var(--ink-soft); font-weight: 400; }
 
-.plain-list {
-  margin: 0 0 12px;
-  padding-inline-start: 22px;
-}
-.plain-list li { margin-bottom: 4px; }
-
 /* ===== Score badge ===== */
 .score-badge {
   font-size: .85rem;
